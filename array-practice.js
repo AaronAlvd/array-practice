@@ -82,8 +82,14 @@ const arr = [4, 2, 3, 6, 8]
 console.log(secondLargest(arr))
 
 const shuffle = (arr) => {
-
-  // Your code here 
+  let newArr = arr.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const index = Math.round(Math.random() * (i + 1));
+    let curr = newArr[i]
+    newArr[i] = newArr[index]
+    newArr[index] = curr
+  }
+  return newArr;
 };
 
 
