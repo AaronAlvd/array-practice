@@ -34,18 +34,52 @@ const evenNumOfChars = arr => {
 };
 
 const smallerThanCurr = arr => {
-    
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+      let total = 0
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[i] > arr[j]) {
+          total++
+        }
+      }
+      newArr.push(total)
+    }
+    return newArr
 };
+// console.log(smallerThanCurr([8,1,2,2,3]))
 
 const twoSum = (arr, target) => {
-
-  // Your code here 
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length - 1; j++) {
+      if (arr[i] + arr[j] === target) {
+        return true
+      }
+    }
+  }
+  return false
 };
 
 const secondLargest = arr => {
+  let newArr = []
+  if (arr.length <= 1) return 
+  for (let i = 0; i < arr.length; i++) {
+    let total = 0
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] < arr[j]) {
+        total++
+      }
+    }
+    newArr.push(total)
+  }
+  let index = newArr.indexOf(1)
+  if (newArr.indexOf(1) === -1) {
+    return arr[0]
+  }
+  return arr[index]
 
-  // Your code here 
 };
+const arr = [4, 2, 3, 6, 8]
+console.log(secondLargest(arr))
 
 const shuffle = (arr) => {
 
